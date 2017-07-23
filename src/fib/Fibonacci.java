@@ -12,7 +12,7 @@ public class Fibonacci {
 
     public static long fib(long n){
         if(n < 2){
-            return 1;
+            return n;//return n when n < 2;
         }
 
         return fib(n-1) + fib(n-2);
@@ -29,8 +29,8 @@ public class Fibonacci {
         }
 
         if(n < 2){
-            memo.put(n, 1l);
-            return 1;
+            memo.put(n, n);
+            return n;
         }
 
         long f = optimisedFib(n-1) + optimisedFib(n-2);
@@ -42,7 +42,7 @@ public class Fibonacci {
 
     public static  void main(String[] args){
         long startTime = Calendar.getInstance().getTimeInMillis();
-        System.out.printf("%,12d%n", fib(10));
+        System.out.printf("%,12d%n", optimisedFib(10));
         long endTime = Calendar.getInstance().getTimeInMillis();
 
         System.out.println("Duration: " + (endTime - startTime));
